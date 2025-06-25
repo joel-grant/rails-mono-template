@@ -1,0 +1,37 @@
+# name: Deploy/Release Chart
+
+# on:
+#   workflow_run:
+#     workflows:
+#       - "Build and Push"
+#       - "Test and Lint"
+#     branches:
+#       - main
+#     types:
+#       - completed
+
+# jobs:
+#   deploy:
+#     environment: production
+#     permissions:
+#       contents: write
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#         with:
+#           fetch-depth: 0
+      
+#       - name: Add Kubeconfig
+#         run: |
+#           mkdir /home/runner/.kube
+#           touch /home/runner/.kube/config
+#           echo "${{ secrets.KUBECONFIG }}" > /home/runner/.kube/config
+
+#       - name: Deploy Chart
+#         run: |
+#           REPO_NAME=${GITHUB_REPOSITORY##*/}
+#           helm upgrade --install --set fullnameOverride=$REPO_NAME --set serviceAccount.name=$REPO_NAME --set image.repository=${{ secrets.DOCKER_USERNAME }}/$REPO_NAME:${{ github.sha }} --set-json='imagePullSecrets=[{"name": "${{ secrets.SECRET_NAME }}"}]' --set-json='env_variables=[{"name": "RAILS_ENV", "value": "${{ secrets.RAILS_ENV }}"}, {"name": "RAILS_MASTER_KEY", "value": "${{ secrets.RAILS_MASTER_KEY }}"}, {"name": "POSTGRES_PORT", "value": "${{ secrets.POSTGRES_PORT }}"}, {"name": "POSTGRES_DB", "value": "${{ secrets.POSTGRES_DB }}"}, {"name": "POSTGRES_HOST", "value": "${{ secrets.POSTGRES_HOST }}"}, {"name": "POSTGRES_USER", "value": "${{ secrets.POSTGRES_USER }}"}, {"name": "POSTGRES_PASSWORD", "value": "${{ secrets.POSTGRES_PASSWORD }}"}]' $REPO_NAME ${{ secrets.HELM_CHART }} \
+#           --kube-context "$KUBE_CONTEXT" \
+#           --username ${{ secrets.CLOUDSMITH_USER_NAME }} \
+#           --password ${{ secrets.CLOUDSMITH_API_KEY }}
