@@ -14,6 +14,7 @@ It comes prepared with:
 A new user of this template should:
 - run `bundle install`
 - run `rails db:create`
+- run `VISUAL="code --wait" bin/rails credentials:edit`
 
 A user of this repo should use the following tools for development:
 - Docker Desktop/CLI
@@ -33,3 +34,11 @@ A user of this repo should use the following tools for development:
 
 ### Migrations
 rails g migration CreateWatchItems entity_type:integer entity:integer user:references
+
+Secrets to set up:
+DOCKERHUB_REPOSITORY
+DOCKERHUB_TOKEN
+DOCKERHUB_USERNAME
+MY_RELEASE_PLEASE_TOKEN
+
+bin/rails credentials:edit

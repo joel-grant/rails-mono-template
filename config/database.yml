@@ -18,6 +18,7 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV['POSTGRES_HOST'] %>
 
 
 development:
@@ -57,6 +58,11 @@ development:
 test:
   <<: *default
   database: rails_mono_template_test
+  # database: <%= ENV['POSTGRES_DB'] %>
+  host: <%= ENV['POSTGRES_HOST'] %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -83,6 +89,7 @@ production:
     <<: *default
     database: rails_mono_template_production
     username: rails_mono_template
+    port: <%= ENV['POSTGRES_PORT'] %>
     password: <%= ENV["RAILS_MONO_TEMPLATE_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
