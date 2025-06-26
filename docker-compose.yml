@@ -1,3 +1,4 @@
+# run: `docker compose up`
 services:
   db:
     image: postgres:latest
@@ -12,7 +13,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
-  rails-mono-template-web:
+  web:
     build: .
     command: "./bin/rails server"
     environment:
