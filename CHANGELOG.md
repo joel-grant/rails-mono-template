@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/joel-grant/rails-mono-template/compare/v0.2.0...v0.2.1) (2025-06-26)
+
+
+### Bug Fixes
+
+* update docker compose file ([2b1e2df](https://github.com/joel-grant/rails-mono-template/commit/2b1e2df202efa0373a5876db780d3dc3abc6a304))
+
 ## [0.2.0](https://github.com/joel-grant/rails-mono-template/compare/v0.1.0...v0.2.0) (2025-06-25)
 
 
