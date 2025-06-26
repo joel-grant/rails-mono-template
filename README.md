@@ -1,42 +1,37 @@
-This repo was created with: `rails new rails-mono-template -T -d=postgresql`
-- run `rails g rspec:install`
+This repo is a ready-to-go Ruby on Rails project with the following additional features:
+  - Additional gems
+  - Postgresql
+  - CI/CD Pipelines
+    - Automated versioning and Changelogs, through "Conventional Commits"
+    - Dependency vulnerabilities
+    - Linting and Testing
+    - Continuous Deployment to Kubernetes
+  - Docker Compose ready
+  - Other miscellaneous custom Rails configurations. 
 
-It comes prepared with:
-- RSpec
-- Postgresql 17
-- Additional gems
-  - pry
-  - rspec
-  - vcr
-  - webmock
-  -
+This was originally generated with: 
+- `rails new rails-mono-template -T -d=postgresql`
+- `rails g rspec:install`
 
+## Dependencies
+- Ruby v3.4.3
+- Rails v8.0.2
+- Docker Desktop/CLI
+- docker compose
+- gh CLI
+- Kubectl
+- Rubocop
+- Helm
+---
+
+## How to Use:
 A new user of this template should:
 - run `bundle install`
 - run `rails db:create`
 - run `VISUAL="code --wait" bin/rails credentials:edit`
 
-A user of this repo should use the following tools for development:
-- Docker Desktop/CLI
-- Docker compose CLI
-- GitHub CLI
-- Kubectl
-- Rubocop
-- Ruby v3.4.3
-- Rails v8.0.2
-- Helm
+The following secrets must be saved as GitHub Action Secrets in order to use all features:
 
-
-
-### Some helpful Rails Commands:
-`bin/rails generate model Article title:string body:text`
-`rails db:migrate`
-`rails console`
-
-### Migrations
-rails g migration CreateWatchItems entity_type:integer entity:integer user:references
-
-Secrets to set up:
 DOCKERHUB_REPOSITORY
 DOCKERHUB_TOKEN
 DOCKERHUB_USERNAME
@@ -57,10 +52,15 @@ SECRET_NAME (name of the k8s generic secret you create)
 release
 HELM_CHART
 
-bin/rails credentials:edit
-
-Create a workspace/repo in:
+### Create a workspace/repo in:
 - Docker hub
-- CloudSmith
 
-Use this with a specific helm chart.
+### Some helpful Rails Commands:
+`bin/rails generate model Article title:string body:text`
+`rails db:migrate`
+`rails console`
+
+### Migrations
+rails g migration CreateWatchItems entity_type:integer entity:integer user:references
+
+
