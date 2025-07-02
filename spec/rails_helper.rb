@@ -79,4 +79,7 @@ RSpec.configure do |config|
     config.configure_rspec_metadata!
     config.default_cassette_options = { re_record_interval: 120.days }
   end
+
+  config.include Rails.application.routes.url_helpers
+  config.include Capybara::DSL
 end
