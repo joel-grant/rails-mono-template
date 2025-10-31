@@ -1,4 +1,6 @@
-This repo is a ready-to-go Ruby on Rails project with the following additional features:
+Note: This is a work in progress.  I've been toying with the concept of what it means to set up a new service effectively.  Adding new services to a distributed architecture can consume a lot of time and is prone to missed steps, missing documentation, and mistakes in configuration.  This repo has started as a playground to create an efficient way to create (for now) Rails 8 Applications that can be easily generated, configured, and deployed in a a repeatable way using autonation.  If a developer needs to create a new service for their application, what could takes hours could potentially take minutes.  Visitors are welcome to look around while I create something that accomplishes these goals effectively. 
+
+### Included Features:
   - Additional gems
   - Postgresql
   - CI/CD Pipelines
